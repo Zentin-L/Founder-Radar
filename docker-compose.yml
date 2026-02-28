@@ -31,6 +31,40 @@ services:
       timeout: 5s
       retries: 5
 
+  celery-worker:
+    image: python:3.12-slim
+    container_name: founder_radar_celery_worker
+    working_dir: /app/backend
+    command: sh -c "pip install -r requirements.txt && celery -A app.workers.celery_app.celery_app worker -Q jobs,linkedin,maintenance --loglevel=info"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/founder_radar
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@postgres:5432/founder_radar
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  celery-beat:
+    image: python:3.12-slim
+    container_name: founder_radar_celery_beat
+    working_dir: /app/backend
+    command: sh -c "pip install -r requirements.txt && celery -A app.workers.celery_app.celery_app beat --loglevel=info"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/founder_radar
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@postgres:5432/founder_radar
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
 volumes:
   pgdata:
   redisdata:

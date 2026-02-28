@@ -1,0 +1,452 @@
+[
+    {
+        "name": "Stripe",
+        "domain": "stripe.com",
+        "sector": "fintech",
+        "stage": "Series B+",
+        "founded_year": 2010,
+        "description": "Online payment processing platform",
+        "team_size": 8000
+    },
+    {
+        "name": "Airbnb",
+        "domain": "airbnb.com",
+        "sector": "ecommerce",
+        "stage": "Series B+",
+        "founded_year": 2008,
+        "description": "Online marketplace for lodging and tourism",
+        "team_size": 6000
+    },
+    {
+        "name": "Dropbox",
+        "domain": "dropbox.com",
+        "sector": "saas_b2b",
+        "stage": "Series B+",
+        "founded_year": 2007,
+        "description": "Cloud file storage and sharing",
+        "team_size": 2800
+    },
+    {
+        "name": "Coinbase",
+        "domain": "coinbase.com",
+        "sector": "fintech",
+        "stage": "Series B+",
+        "founded_year": 2012,
+        "description": "Cryptocurrency exchange platform",
+        "team_size": 3700
+    },
+    {
+        "name": "DoorDash",
+        "domain": "doordash.com",
+        "sector": "ecommerce",
+        "stage": "Series B+",
+        "founded_year": 2013,
+        "description": "Food delivery platform",
+        "team_size": 5000
+    },
+    {
+        "name": "Notion",
+        "domain": "notion.so",
+        "sector": "saas_b2b",
+        "stage": "Series A",
+        "founded_year": 2013,
+        "description": "All-in-one workspace for notes and collaboration",
+        "team_size": 500
+    },
+    {
+        "name": "Figma",
+        "domain": "figma.com",
+        "sector": "saas_b2b",
+        "stage": "Series B+",
+        "founded_year": 2012,
+        "description": "Collaborative interface design tool",
+        "team_size": 1200
+    },
+    {
+        "name": "Vercel",
+        "domain": "vercel.com",
+        "sector": "saas_b2b",
+        "stage": "Series A",
+        "founded_year": 2015,
+        "description": "Frontend cloud platform for developers",
+        "team_size": 700
+    },
+    {
+        "name": "Retool",
+        "domain": "retool.com",
+        "sector": "saas_b2b",
+        "stage": "Series A",
+        "founded_year": 2017,
+        "description": "Build internal tools quickly",
+        "team_size": 450
+    },
+    {
+        "name": "Deel",
+        "domain": "deel.com",
+        "sector": "saas_b2b",
+        "stage": "Series B+",
+        "founded_year": 2019,
+        "description": "Global payroll and compliance platform",
+        "team_size": 3000
+    },
+    {
+        "name": "Rippling",
+        "domain": "rippling.com",
+        "sector": "saas_b2b",
+        "stage": "Series B+",
+        "founded_year": 2016,
+        "description": "Employee management platform",
+        "team_size": 2500
+    },
+    {
+        "name": "Brex",
+        "domain": "brex.com",
+        "sector": "fintech",
+        "stage": "Series B+",
+        "founded_year": 2017,
+        "description": "Financial services for startups",
+        "team_size": 1200
+    },
+    {
+        "name": "Ramp",
+        "domain": "ramp.com",
+        "sector": "fintech",
+        "stage": "Series A",
+        "founded_year": 2019,
+        "description": "Corporate card and expense management",
+        "team_size": 800
+    },
+    {
+        "name": "Hugging Face",
+        "domain": "huggingface.co",
+        "sector": "ai_ml",
+        "stage": "Series B+",
+        "founded_year": 2016,
+        "description": "AI model hub and NLP library",
+        "team_size": 400
+    },
+    {
+        "name": "Anthropic",
+        "domain": "anthropic.com",
+        "sector": "ai_ml",
+        "stage": "Series B+",
+        "founded_year": 2021,
+        "description": "AI safety and research company",
+        "team_size": 600
+    },
+    {
+        "name": "Cohere",
+        "domain": "cohere.com",
+        "sector": "ai_ml",
+        "stage": "Series A",
+        "founded_year": 2019,
+        "description": "Enterprise NLP and LLM platform",
+        "team_size": 350
+    },
+    {
+        "name": "Mistral AI",
+        "domain": "mistral.ai",
+        "sector": "ai_ml",
+        "stage": "Seed",
+        "founded_year": 2023,
+        "description": "Open-weight large language models",
+        "team_size": 60
+    },
+    {
+        "name": "Runway",
+        "domain": "runwayml.com",
+        "sector": "ai_ml",
+        "stage": "Series A",
+        "founded_year": 2018,
+        "description": "AI creative tools for video generation",
+        "team_size": 200
+    },
+    {
+        "name": "Scale AI",
+        "domain": "scale.com",
+        "sector": "ai_ml",
+        "stage": "Series B+",
+        "founded_year": 2016,
+        "description": "Data labeling and AI infrastructure",
+        "team_size": 700
+    },
+    {
+        "name": "Cerebras",
+        "domain": "cerebras.net",
+        "sector": "ai_ml",
+        "stage": "Series B+",
+        "founded_year": 2016,
+        "description": "AI hardware and compute systems",
+        "team_size": 500
+    },
+    {
+        "name": "Wiz",
+        "domain": "wiz.io",
+        "sector": "cybersecurity",
+        "stage": "Series B+",
+        "founded_year": 2020,
+        "description": "Cloud security platform",
+        "team_size": 1200
+    },
+    {
+        "name": "Snyk",
+        "domain": "snyk.io",
+        "sector": "cybersecurity",
+        "stage": "Series B+",
+        "founded_year": 2015,
+        "description": "Developer security platform",
+        "team_size": 1000
+    },
+    {
+        "name": "Lacework",
+        "domain": "lacework.com",
+        "sector": "cybersecurity",
+        "stage": "Series B+",
+        "founded_year": 2015,
+        "description": "Cloud-native security platform",
+        "team_size": 400
+    },
+    {
+        "name": "Tempus",
+        "domain": "tempus.com",
+        "sector": "healthtech",
+        "stage": "Series B+",
+        "founded_year": 2015,
+        "description": "AI-powered precision medicine",
+        "team_size": 2500
+    },
+    {
+        "name": "Sword Health",
+        "domain": "swordhealth.com",
+        "sector": "healthtech",
+        "stage": "Series A",
+        "founded_year": 2015,
+        "description": "Digital musculoskeletal therapy",
+        "team_size": 800
+    },
+    {
+        "name": "Noom",
+        "domain": "noom.com",
+        "sector": "healthtech",
+        "stage": "Series B+",
+        "founded_year": 2008,
+        "description": "Weight management and health coaching",
+        "team_size": 2000
+    },
+    {
+        "name": "Olive",
+        "domain": "oliveai.com",
+        "sector": "healthtech",
+        "stage": "Series B+",
+        "founded_year": 2012,
+        "description": "Healthcare AI automation",
+        "team_size": 600
+    },
+    {
+        "name": "Coursera",
+        "domain": "coursera.org",
+        "sector": "edtech",
+        "stage": "Series B+",
+        "founded_year": 2012,
+        "description": "Online learning platform",
+        "team_size": 1400
+    },
+    {
+        "name": "Duolingo",
+        "domain": "duolingo.com",
+        "sector": "edtech",
+        "stage": "Series B+",
+        "founded_year": 2011,
+        "description": "Language learning platform",
+        "team_size": 700
+    },
+    {
+        "name": "Outschool",
+        "domain": "outschool.com",
+        "sector": "edtech",
+        "stage": "Series A",
+        "founded_year": 2015,
+        "description": "Live online classes for kids",
+        "team_size": 200
+    },
+    {
+        "name": "Watershed",
+        "domain": "watershed.com",
+        "sector": "climate",
+        "stage": "Series A",
+        "founded_year": 2019,
+        "description": "Enterprise carbon accounting platform",
+        "team_size": 250
+    },
+    {
+        "name": "Arcadia",
+        "domain": "arcadia.com",
+        "sector": "climate",
+        "stage": "Series B+",
+        "founded_year": 2014,
+        "description": "Clean energy technology",
+        "team_size": 400
+    },
+    {
+        "name": "Patch",
+        "domain": "patch.io",
+        "sector": "climate",
+        "stage": "Seed",
+        "founded_year": 2020,
+        "description": "Carbon removal marketplace",
+        "team_size": 60
+    },
+    {
+        "name": "Shopify",
+        "domain": "shopify.com",
+        "sector": "ecommerce",
+        "stage": "Series B+",
+        "founded_year": 2006,
+        "description": "E-commerce platform for online stores",
+        "team_size": 10000
+    },
+    {
+        "name": "Faire",
+        "domain": "faire.com",
+        "sector": "ecommerce",
+        "stage": "Series B+",
+        "founded_year": 2017,
+        "description": "B2B wholesale marketplace",
+        "team_size": 1000
+    },
+    {
+        "name": "Bolt",
+        "domain": "bolt.com",
+        "sector": "ecommerce",
+        "stage": "Series B+",
+        "founded_year": 2014,
+        "description": "One-click checkout platform",
+        "team_size": 300
+    },
+    {
+        "name": "Linear",
+        "domain": "linear.app",
+        "sector": "saas_b2b",
+        "stage": "Series A",
+        "founded_year": 2019,
+        "description": "Issue tracking for software teams",
+        "team_size": 80
+    },
+    {
+        "name": "Supabase",
+        "domain": "supabase.com",
+        "sector": "saas_b2b",
+        "stage": "Series A",
+        "founded_year": 2020,
+        "description": "Open source Firebase alternative",
+        "team_size": 150
+    },
+    {
+        "name": "Railway",
+        "domain": "railway.app",
+        "sector": "saas_b2b",
+        "stage": "Seed",
+        "founded_year": 2020,
+        "description": "Cloud deployment platform",
+        "team_size": 40
+    },
+    {
+        "name": "Resend",
+        "domain": "resend.com",
+        "sector": "saas_b2b",
+        "stage": "Seed",
+        "founded_year": 2023,
+        "description": "Email for developers",
+        "team_size": 25
+    },
+    {
+        "name": "Neon",
+        "domain": "neon.tech",
+        "sector": "saas_b2b",
+        "stage": "Series A",
+        "founded_year": 2021,
+        "description": "Serverless Postgres database",
+        "team_size": 120
+    },
+    {
+        "name": "Weights & Biases",
+        "domain": "wandb.ai",
+        "sector": "ai_ml",
+        "stage": "Series A",
+        "founded_year": 2017,
+        "description": "MLOps platform for experiment tracking",
+        "team_size": 300
+    },
+    {
+        "name": "Anyscale",
+        "domain": "anyscale.com",
+        "sector": "ai_ml",
+        "stage": "Series A",
+        "founded_year": 2019,
+        "description": "Scalable AI compute platform built on Ray",
+        "team_size": 200
+    },
+    {
+        "name": "Vanta",
+        "domain": "vanta.com",
+        "sector": "cybersecurity",
+        "stage": "Series A",
+        "founded_year": 2018,
+        "description": "Automated security compliance",
+        "team_size": 500
+    },
+    {
+        "name": "Drata",
+        "domain": "drata.com",
+        "sector": "cybersecurity",
+        "stage": "Series A",
+        "founded_year": 2020,
+        "description": "Compliance automation platform",
+        "team_size": 400
+    },
+    {
+        "name": "Grammarly",
+        "domain": "grammarly.com",
+        "sector": "ai_ml",
+        "stage": "Series B+",
+        "founded_year": 2009,
+        "description": "AI writing assistant",
+        "team_size": 900
+    },
+    {
+        "name": "Jasper",
+        "domain": "jasper.ai",
+        "sector": "ai_ml",
+        "stage": "Series A",
+        "founded_year": 2021,
+        "description": "AI content creation platform",
+        "team_size": 350
+    },
+    {
+        "name": "Mercury",
+        "domain": "mercury.com",
+        "sector": "fintech",
+        "stage": "Series A",
+        "founded_year": 2019,
+        "description": "Banking for startups",
+        "team_size": 500
+    },
+    {
+        "name": "Plaid",
+        "domain": "plaid.com",
+        "sector": "fintech",
+        "stage": "Series B+",
+        "founded_year": 2013,
+        "description": "Financial data connectivity API",
+        "team_size": 1200
+    },
+    {
+        "name": "Lattice",
+        "domain": "lattice.com",
+        "sector": "saas_b2b",
+        "stage": "Series B+",
+        "founded_year": 2016,
+        "description": "People management platform",
+        "team_size": 600
+    }
+]

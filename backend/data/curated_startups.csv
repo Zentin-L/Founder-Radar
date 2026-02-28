@@ -1,0 +1,21 @@
+name,domain,sector,stage,founded_year,description,team_size
+Mercury,mercury.com,fintech,Series B+,2017,Banking stack for startups,900
+Clay,clay.com,saas_b2b,Series A,2017,Go-to-market data enrichment platform,250
+Supabase,supabase.com,saas_b2b,Series A,2020,Open source Firebase alternative,180
+Perplexity,perplexity.ai,ai_ml,Series B+,2022,AI answer engine,220
+Runway,runwayml.com,ai_ml,Series B+,2018,Generative AI tools for video creation,300
+Replit,replit.com,saas_b2b,Series B+,2016,Cloud development environment,350
+Luma,lumalabs.ai,ai_ml,Series A,2021,3D capture and generative video platform,70
+Arcadia,arcadia.com,climate,Series B+,2014,Clean energy technology platform,450
+AtoB,atob.com,fintech,Series A,2019,Fleet payments and fuel cards,180
+Snyk,snyk.io,cybersecurity,Series B+,2015,Developer security platform,1200
+Semgrep,semgrep.dev,cybersecurity,Series A,2017,Static analysis for application security,220
+Modern Treasury,moderntreasury.com,fintech,Series B+,2018,Payments operations software for fintech teams,350
+Neon,neon.tech,saas_b2b,Series A,2021,Serverless Postgres platform,130
+Whatnot,whatnot.com,ecommerce,Series B+,2019,Live shopping marketplace,900
+Tavus,tavus.io,ai_ml,Seed,2021,Personalized AI video generation API,40
+Hightouch,hightouch.com,saas_b2b,Series B+,2018,Composable customer data activation,500
+OpenPhone,openphone.com,saas_b2b,Series A,2018,Business phone system for startups,250
+ClassDojo,classdojo.com,edtech,Series B+,2011,Communication and learning platform for schools,800
+BenchSci,benchsci.com,healthtech,Series B+,2015,AI platform for life sciences R&D,260
+Monarch Money,monarchmoney.com,fintech,Seed,2019,Personal finance management application,75

@@ -7,8 +7,8 @@
 | # | Phase | Goal | Requirements | Plans |
 |---|-------|------|--------------|-------|
 | 1 | Foundation & Auth | Project scaffolding, database, authentication | AUTH-01 to AUTH-04 | 0/3 |
-| 2 | Startup Database | Seed database, startup CRUD, user submissions | DATA-01 to DATA-04 | 0/3 |
-| 3 | Signal Pipelines | Job posting + LinkedIn scraping and processing | SIGNAL-01 to SIGNAL-05 | 0/4 |
+| 2 | Startup Database | Seed database, startup CRUD, user submissions | DATA-01 to DATA-04 | 3/3 |
+| 3 | Signal Pipelines | Job posting + LinkedIn scraping and processing | SIGNAL-01 to SIGNAL-05 | 4/4 |
 | 4 | Scoring Engine | Momentum Score calculation and tracking | SCORE-01 to SCORE-03 | 0/2 |
 | 5 | Feed & Dashboard | Signal feed, startup detail pages, search | FEED-01 to FEED-04, DASH-01 to DASH-04, SRCH-01 to SRCH-03 | 0/5 |
 | 6 | Watchlists & Polish | Watchlists, alerts, export, deployment | WATCH-01 to WATCH-03, EXPORT-01 | 0/3 |

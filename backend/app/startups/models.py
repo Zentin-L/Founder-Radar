@@ -1,9 +1,21 @@
 import uuid
+import enum
 from datetime import datetime
-from sqlalchemy import String, Integer, Float, DateTime, func, Text
+from sqlalchemy import String, Integer, Float, DateTime, func, Text, Enum, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 from app.database import Base
+
+
+class StartupSource(str, enum.Enum):
+    SEEDED = "seeded"
+    USER_SUBMITTED = "user_submitted"
+
+
+class SignalsStatus(str, enum.Enum):
+    PENDING = "pending"
+    ACTIVE = "active"
+    FAILED = "failed"
 
 
 class Startup(Base):
@@ -13,16 +25,31 @@ class Startup(Base):
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
     )
     name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
-    domain: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    domain: Mapped[str | None] = mapped_column(String(255), nullable=True, unique=True)
     sector: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
     stage: Mapped[str | None] = mapped_column(String(50), nullable=True)
     founded_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     team_size: Mapped[int | None] = mapped_column(Integer, nullable=True)
     momentum_score: Mapped[float | None] = mapped_column(Float, nullable=True, default=0.0)
+    score_change: Mapped[float | None] = mapped_column(Float, nullable=True, default=0.0)
+    score_direction: Mapped[str | None] = mapped_column(String(10), nullable=True, default="flat")
     score_updated_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
+    # Phase 2 additions
+    source: Mapped[str | None] = mapped_column(
+        String(20), default=StartupSource.SEEDED.value
+    )
+    signals_status: Mapped[str | None] = mapped_column(
+        String(20), default=SignalsStatus.ACTIVE.value
+    )
+    submitted_by: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True
+    )
+    linkedin_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    logo_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
