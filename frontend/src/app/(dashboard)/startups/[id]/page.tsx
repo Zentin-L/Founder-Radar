@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useStartup } from "@/lib/startups";
+import { useStartup, useStartupScoreHistory, useStartupSignalTimeline } from "@/lib/startups";
 
 function scoreColor(score: number) {
     if (score >= 70) return "text-emerald-400";
@@ -14,6 +14,9 @@ export default function StartupDetailPage() {
     const params = useParams<{ id: string }>();
     const startupId = params?.id ?? null;
     const { data: startup, isLoading, isError } = useStartup(startupId);
+    const { data: hiringTimeline } = useStartupSignalTimeline(startupId, "hiring");
+    const { data: linkedinTimeline } = useStartupSignalTimeline(startupId, "linkedin");
+    const { data: scoreHistory } = useStartupScoreHistory(startupId);
 
     if (isLoading) {
         return <div className="text-gray-400">Loading startup...</div>;
@@ -22,8 +25,8 @@ export default function StartupDetailPage() {
     if (isError || !startup) {
         return (
             <div className="space-y-4">
-                <Link href="/explore" className="text-sm text-indigo-300 hover:text-indigo-200">
-                    ← Back to explore
+                <Link href="/feed" className="text-sm text-indigo-300 hover:text-indigo-200">
+                    ← Back to feed
                 </Link>
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 text-gray-300">Startup not found.</div>
             </div>
@@ -34,8 +37,8 @@ export default function StartupDetailPage() {
 
     return (
         <div className="space-y-6">
-            <Link href="/explore" className="text-sm text-indigo-300 hover:text-indigo-200">
-                ← Back to explore
+            <Link href="/feed" className="text-sm text-indigo-300 hover:text-indigo-200">
+                ← Back to feed
             </Link>
 
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-5 space-y-4">
@@ -101,11 +104,46 @@ export default function StartupDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-5">
                     <h2 className="text-white font-semibold">Hiring Signal History</h2>
-                    <p className="text-sm text-gray-500 mt-2">Chart placeholder (Phase 5)</p>
+                    <div className="mt-3 space-y-2">
+                        {(hiringTimeline?.items ?? []).slice(0, 8).map((item) => (
+                            <div key={item.id} className="flex items-center justify-between rounded-md border border-gray-800 bg-gray-950 px-3 py-2 text-xs">
+                                <span className="text-gray-400">{new Date(item.collected_at).toLocaleDateString()}</span>
+                                <span className="text-gray-300">Value: {Math.round(item.value * 100) / 100}</span>
+                                <span className="text-gray-300">Δ {item.delta === null ? "—" : Math.round(item.delta * 100) / 100}</span>
+                            </div>
+                        ))}
+                        {(hiringTimeline?.items?.length ?? 0) === 0 && <p className="text-sm text-gray-500">No hiring history yet.</p>}
+                    </div>
                 </div>
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-5">
                     <h2 className="text-white font-semibold">LinkedIn Growth History</h2>
-                    <p className="text-sm text-gray-500 mt-2">Chart placeholder (Phase 5)</p>
+                    <div className="mt-3 space-y-2">
+                        {(linkedinTimeline?.items ?? []).slice(0, 8).map((item) => (
+                            <div key={item.id} className="flex items-center justify-between rounded-md border border-gray-800 bg-gray-950 px-3 py-2 text-xs">
+                                <span className="text-gray-400">{new Date(item.collected_at).toLocaleDateString()}</span>
+                                <span className="text-gray-300">Value: {Math.round(item.value * 100) / 100}</span>
+                                <span className="text-gray-300">Δ {item.delta === null ? "—" : Math.round(item.delta * 100) / 100}</span>
+                            </div>
+                        ))}
+                        {(linkedinTimeline?.items?.length ?? 0) === 0 && <p className="text-sm text-gray-500">No LinkedIn history yet.</p>}
+                    </div>
+                </div>
+            </div>
+
+            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-5">
+                <h2 className="text-white font-semibold">Momentum Score Trend</h2>
+                <div className="mt-3 space-y-2">
+                    {(scoreHistory?.items ?? []).slice(0, 12).map((item, index) => (
+                        <div
+                            key={`${item.calculated_at}-${index}`}
+                            className="flex items-center justify-between rounded-md border border-gray-800 bg-gray-950 px-3 py-2 text-xs"
+                        >
+                            <span className="text-gray-400">{new Date(item.calculated_at).toLocaleDateString()}</span>
+                            <span className="text-gray-300">Score: {Math.round(item.score * 10) / 10}</span>
+                            <span className="text-gray-300">{item.score_direction} ({Math.round(item.score_change * 10) / 10})</span>
+                        </div>
+                    ))}
+                    {(scoreHistory?.items?.length ?? 0) === 0 && <p className="text-sm text-gray-500">No score history yet.</p>}
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ from sqlalchemy import select, func, or_
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.models import User, SubscriptionTier
+from app.signals.models import Signal, SignalType
 from app.startups.models import Startup
 from app.startups.enrichment import enrich_from_url
 
@@ -34,6 +35,7 @@ def normalize_domain(url_or_domain: str) -> str:
 
 async def get_startups(
     db: AsyncSession,
+    q: str | None = None,
     sector: str | None = None,
     stage: str | None = None,
     min_score: float | None = None,
@@ -42,6 +44,14 @@ async def get_startups(
     limit: int = 50,
 ) -> tuple[list[Startup], int, bool]:
     query = select(Startup)
+
+    if q:
+        query = query.where(
+            or_(
+                Startup.name.ilike(f"%{q}%"),
+                Startup.domain.ilike(f"%{q}%"),
+            )
+        )
 
     if sector:
         query = query.where(Startup.sector == sector)
@@ -69,12 +79,17 @@ async def get_startups(
     if has_more:
         items = items[:limit]
 
+    await enrich_signal_highlights(db, items)
+
     return items, total, has_more
 
 
 async def get_startup_by_id(db: AsyncSession, startup_id: UUID) -> Startup | None:
     result = await db.execute(select(Startup).where(Startup.id == startup_id))
-    return result.scalar_one_or_none()
+    startup = result.scalar_one_or_none()
+    if startup:
+        await enrich_signal_highlights(db, [startup])
+    return startup
 
 
 async def get_startup_by_domain(db: AsyncSession, domain: str) -> Startup | None:
@@ -163,3 +178,39 @@ async def submit_startup(db: AsyncSession, url: str, user: User) -> Startup:
         momentum_score=0.0,
     )
     return startup
+
+
+async def enrich_signal_highlights(db: AsyncSession, startups: list[Startup]) -> None:
+    for startup in startups:
+        startup.hiring_signal_delta = None
+        startup.hiring_signal_collected_at = None
+        startup.linkedin_signal_delta = None
+        startup.linkedin_signal_collected_at = None
+
+        hiring_stmt = (
+            select(Signal.delta, Signal.collected_at)
+            .where(
+                Signal.startup_id == startup.id,
+                Signal.signal_type == SignalType.HIRING,
+            )
+            .order_by(Signal.collected_at.desc())
+            .limit(1)
+        )
+        hiring_row = (await db.execute(hiring_stmt)).first()
+        if hiring_row:
+            startup.hiring_signal_delta = hiring_row[0]
+            startup.hiring_signal_collected_at = hiring_row[1]
+
+        linkedin_stmt = (
+            select(Signal.delta, Signal.collected_at)
+            .where(
+                Signal.startup_id == startup.id,
+                Signal.signal_type == SignalType.LINKEDIN,
+            )
+            .order_by(Signal.collected_at.desc())
+            .limit(1)
+        )
+        linkedin_row = (await db.execute(linkedin_stmt)).first()
+        if linkedin_row:
+            startup.linkedin_signal_delta = linkedin_row[0]
+            startup.linkedin_signal_collected_at = linkedin_row[1]

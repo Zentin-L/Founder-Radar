@@ -16,6 +16,10 @@ class StartupResponse(BaseModel):
     score_change: float | None = 0.0
     score_direction: str | None = "flat"
     score_updated_at: datetime | None = None
+    hiring_signal_delta: float | None = None
+    hiring_signal_collected_at: datetime | None = None
+    linkedin_signal_delta: float | None = None
+    linkedin_signal_collected_at: datetime | None = None
     source: str | None = None
     signals_status: str | None = None
     linkedin_url: str | None = None
@@ -35,6 +39,7 @@ class StartupListResponse(BaseModel):
 
 
 class StartupFilters(BaseModel):
+    q: str | None = None
     sector: str | None = None
     stage: str | None = None
     min_score: float | None = None

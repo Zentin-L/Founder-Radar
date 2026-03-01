@@ -13,7 +13,13 @@ export interface Startup {
     description: string | null;
     team_size: number | null;
     momentum_score: number | null;
+    score_change: number | null;
+    score_direction: string | null;
     score_updated_at: string | null;
+    hiring_signal_delta: number | null;
+    hiring_signal_collected_at: string | null;
+    linkedin_signal_delta: number | null;
+    linkedin_signal_collected_at: string | null;
     source: string | null;
     signals_status: string | null;
     linkedin_url: string | null;
@@ -30,11 +36,41 @@ export interface StartupListResponse {
 }
 
 export interface StartupFilters {
+    q?: string;
     sector?: string;
     stage?: string;
     min_score?: number;
     max_score?: number;
     limit?: number;
+}
+
+export interface SignalTimelinePoint {
+    id: string;
+    signal_type: "hiring" | "linkedin";
+    value: number;
+    delta: number | null;
+    collected_at: string;
+}
+
+export interface SignalTimelineResponse {
+    startup_id: string;
+    items: SignalTimelinePoint[];
+    cursor: string | null;
+    has_more: boolean;
+}
+
+export interface ScoreHistoryPoint {
+    score: number;
+    score_change: number;
+    score_direction: "up" | "down" | "flat";
+    calculated_at: string;
+}
+
+export interface ScoreHistoryResponse {
+    startup_id: string;
+    items: ScoreHistoryPoint[];
+    cursor: string | null;
+    has_more: boolean;
 }
 
 export interface StartupSubmitResponse {
@@ -79,6 +115,35 @@ export function useSearchStartups(query: string) {
             return res.data;
         },
         enabled: query.trim().length > 0,
+    });
+}
+
+export function useStartupSignalTimeline(id: string | null, type?: "hiring" | "linkedin") {
+    return useQuery<SignalTimelineResponse>({
+        queryKey: ["signals", id, type ?? "all"],
+        queryFn: async () => {
+            const res = await api.get(`/api/signals/${id}`, {
+                params: {
+                    type,
+                    limit: 50,
+                },
+            });
+            return res.data;
+        },
+        enabled: !!id,
+    });
+}
+
+export function useStartupScoreHistory(id: string | null) {
+    return useQuery<ScoreHistoryResponse>({
+        queryKey: ["scoring", id, "history"],
+        queryFn: async () => {
+            const res = await api.get(`/api/scoring/startups/${id}/history`, {
+                params: { limit: 50 },
+            });
+            return res.data;
+        },
+        enabled: !!id,
     });
 }
 

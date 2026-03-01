@@ -25,6 +25,7 @@ router = APIRouter(prefix="/api/startups", tags=["startups"])
 
 @router.get("", response_model=StartupListResponse)
 async def list_startups(
+    q: str | None = None,
     sector: str | None = None,
     stage: str | None = None,
     min_score: float | None = None,
@@ -35,7 +36,7 @@ async def list_startups(
     db: AsyncSession = Depends(get_db),
 ):
     items, total, has_more = await get_startups(
-        db, sector=sector, stage=stage,
+        db, q=q, sector=sector, stage=stage,
         min_score=min_score, max_score=max_score,
         cursor=cursor, limit=limit,
     )

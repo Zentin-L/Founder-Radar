@@ -1,6 +1,6 @@
 # Roadmap: Founder Radar v1.0
 
-**Phases:** 6 | **Requirements:** 31 | **Depth:** Standard
+**Phases:** 6 | **Requirements:** 31 | **Depth:** Deep
 
 ## Overview
 
@@ -9,9 +9,9 @@
 | 1 | Foundation & Auth | Project scaffolding, database, authentication | AUTH-01 to AUTH-04 | 0/3 |
 | 2 | Startup Database | Seed database, startup CRUD, user submissions | DATA-01 to DATA-04 | 3/3 |
 | 3 | Signal Pipelines | Job posting + LinkedIn scraping and processing | SIGNAL-01 to SIGNAL-05 | 4/4 |
-| 4 | Scoring Engine | Momentum Score calculation and tracking | SCORE-01 to SCORE-03 | 0/2 |
-| 5 | Feed & Dashboard | Signal feed, startup detail pages, search | FEED-01 to FEED-04, DASH-01 to DASH-04, SRCH-01 to SRCH-03 | 0/5 |
-| 6 | Watchlists & Polish | Watchlists, alerts, export, deployment | WATCH-01 to WATCH-03, EXPORT-01 | 0/3 |
+| 4 | Scoring Engine | Momentum Score calculation and tracking | SCORE-01 to SCORE-03 | 2/2 |
+| 5 | Feed & Dashboard | Signal feed, startup detail pages, search | FEED-01 to FEED-04, DASH-01 to DASH-04, SRCH-01 to SRCH-03 | 5/5 |
+| 6 | 3D Marketing Site & Launch | Public marketing experience, conversion funnel, launch ops | MKT-01 to MKT-04 | 0/6 |
 
 ---
 
@@ -87,19 +87,20 @@
 
 ---
 
-## Phase 6: Watchlists & Polish
-**Goal:** Add personal watchlist features, email alerts, CSV export, and polish the platform for launch readiness.
+## Phase 6: 3D Marketing Site & Launch
+**Goal:** Build a premium public website (`foundradar.com`) with reactive 3D storytelling that converts visitors into qualified beta and paid pipeline.
 
-**Requirements:** WATCH-01, WATCH-02, WATCH-03, EXPORT-01
+**Requirements:** MKT-01, MKT-02, MKT-03, MKT-04
 
 **Success Criteria:**
-1. User can add/remove startups to a personal watchlist
-2. Watchlist view shows a filtered feed of watched startups only
-3. Email notifications fire when a watched startup's score spikes significantly
-4. User can export search results or watchlist data to CSV
-5. Platform is deployment-ready with production configuration
+1. Marketing page includes required sections (Hero, Problem, Solution, How it Works, Social Proof, Pricing, Request Access)
+2. 3D scene architecture supports performant scroll-driven camera choreography with graceful fallbacks
+3. Mobile and Safari users receive stable tiered experience (full/lite/static) without blocking conversion
+4. Accessibility baseline is met (reduced motion, keyboard navigation, screen reader alternatives, skip links)
+5. Request access funnel includes sector selection, email verification flow, and analytics instrumentation
+6. Site is launch-ready on Vercel with SEO metadata and operational runbook
 
 ---
 
 *Roadmap created: 2026-02-27*
-*Last updated: 2026-02-27 after initial creation*
+*Last updated: 2026-03-01 after Phase 6 planning*

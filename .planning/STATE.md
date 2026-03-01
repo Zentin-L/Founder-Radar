@@ -5,20 +5,20 @@
 See: .planning/PROJECT.md (updated 2026-02-27)
 
 **Core value:** VC analysts can instantly see which startups are showing unusual growth momentum
-**Current focus:** Phase 4 planned — ready for execution
+**Current focus:** Phase 6 planning
 
 ## Current Position
 
 - **Milestone:** v1.0
-- **Phase:** 3/6 complete (Startup Database + Signal Pipelines finished)
-- **Last action:** Created Phase 4 scoring engine execution plans
+- **Phase:** 4/6 complete (Startup Database + Signal Pipelines + Scoring Engine + Feed/Dashboard finished)
+- **Last action:** Executed Phase 5 feed, dashboard, and search experience
 
 ## Progress
 
 ```
-Progress: ███░░░░░░░ 29%
-Phases: 2/6 complete
-Requirements: 9/31 complete
+Progress: ██████░░░░ 61%
+Phases: 4/6 complete
+Requirements: 19/31 complete
 ```
 
 ## Recent Activity
@@ -34,6 +34,9 @@ Requirements: 9/31 complete
 | 2026-02-28 | Phase 3 replanned with options: Standard depth, Hybrid scraping, 12-hour schedule |
 | 2026-02-28 | Phase 3 executed: Celery worker/beat, jobs + LinkedIn collection, unified signal APIs, health alerts, dead-letter logging, and resumable backfill |
 | 2026-02-28 | Phase 4 planned with options: Standard depth, hybrid normalized scoring, 12-hour recompute, simple delta direction |
+| 2026-03-01 | Phase 4 executed: scoring engine, score history persistence, scheduled recompute tasks, and scoring APIs with successful smoke validation |
+| 2026-03-01 | Phase 5 planned with options: Standard depth, UX-polished scope, manual+focus refresh, 12-hour aligned data cadence |
+| 2026-03-01 | Phase 5 executed: ranked feed UI, filters/search, manual+focus refresh behavior, and startup detail signal/score history views |
 
 ## Key Decisions
 
@@ -52,7 +55,7 @@ Requirements: 9/31 complete
 
 ## Session Continuity
 
-**Next step:** `/gsd:execute-phase 4`
+**Next step:** `/gsd:plan-phase 6`
 
 ---
-*Last updated: 2026-02-28 after Phase 4 planning*
+*Last updated: 2026-03-01 after Phase 5 execution*
