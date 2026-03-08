@@ -5,20 +5,20 @@
 See: .planning/PROJECT.md (updated 2026-02-27)
 
 **Core value:** VC analysts can instantly see which startups are showing unusual growth momentum
-**Current focus:** Phase 6 planning
+**Current focus:** Post-Phase 6 launch hardening and deploy readiness
 
 ## Current Position
 
 - **Milestone:** v1.0
-- **Phase:** 4/6 complete (Startup Database + Signal Pipelines + Scoring Engine + Feed/Dashboard finished)
-- **Last action:** Executed Phase 5 feed, dashboard, and search experience
+- **Phase:** 6/6 complete (Startup Database + Signal Pipelines + Scoring Engine + Feed/Dashboard + 3D Marketing + launch hardening finished)
+- **Last action:** Implemented persistent request-access lead storage, backend marketing APIs, and frontend proxy rewiring
 
 ## Progress
 
 ```
-Progress: ██████░░░░ 61%
-Phases: 4/6 complete
-Requirements: 19/31 complete
+Progress: ████████░░ 87%
+Phases: 6/6 complete
+Requirements: 27/31 complete
 ```
 
 ## Recent Activity
@@ -37,6 +37,9 @@ Requirements: 19/31 complete
 | 2026-03-01 | Phase 4 executed: scoring engine, score history persistence, scheduled recompute tasks, and scoring APIs with successful smoke validation |
 | 2026-03-01 | Phase 5 planned with options: Standard depth, UX-polished scope, manual+focus refresh, 12-hour aligned data cadence |
 | 2026-03-01 | Phase 5 executed: ranked feed UI, filters/search, manual+focus refresh behavior, and startup detail signal/score history views |
+| 2026-03-01 | Phase 6 planned with options: Deep depth, UX-polished scope, aggressive 2-week launch style for 3D marketing site |
+| 2026-03-01 | Phase 6 executed: 3D storyscroll marketing site, mobile/static fallbacks, request-access + verification flow, analytics hooks, and SEO metadata |
+| 2026-03-01 | Post-Phase-6 hardening: request-access moved from in-memory to PostgreSQL persistence, backend marketing endpoints added, and frontend API routes proxied |
 
 ## Key Decisions
 
@@ -55,7 +58,7 @@ Requirements: 19/31 complete
 
 ## Session Continuity
 
-**Next step:** `/gsd:plan-phase 6`
+**Next step:** Deploy to Vercel and run launch-day smoke checklist
 
 ---
-*Last updated: 2026-03-01 after Phase 5 execution*
+*Last updated: 2026-03-01 after post-Phase 6 hardening*

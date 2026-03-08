@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     # Backend
     BACKEND_URL: str = "http://localhost:8000"
 
+    # Marketing emails
+    RESEND_API_KEY: str | None = None
+    MARKETING_FROM_EMAIL: str = "Founder Radar <noreply@founderradar.com>"
+    MARKETING_ADMIN_EMAIL: str | None = None
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

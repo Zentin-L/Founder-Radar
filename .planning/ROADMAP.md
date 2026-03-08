@@ -11,7 +11,7 @@
 | 3 | Signal Pipelines | Job posting + LinkedIn scraping and processing | SIGNAL-01 to SIGNAL-05 | 4/4 |
 | 4 | Scoring Engine | Momentum Score calculation and tracking | SCORE-01 to SCORE-03 | 2/2 |
 | 5 | Feed & Dashboard | Signal feed, startup detail pages, search | FEED-01 to FEED-04, DASH-01 to DASH-04, SRCH-01 to SRCH-03 | 5/5 |
-| 6 | 3D Marketing Site & Launch | Public marketing experience, conversion funnel, launch ops | MKT-01 to MKT-04 | 0/6 |
+| 6 | 3D Marketing Site & Launch | Public marketing experience, conversion funnel, launch ops | MKT-01 to MKT-04 | 6/6 |
 
 ---
 
@@ -103,4 +103,4 @@
 ---
 
 *Roadmap created: 2026-02-27*
-*Last updated: 2026-03-01 after Phase 6 planning*
+*Last updated: 2026-03-01 after Phase 6 execution*

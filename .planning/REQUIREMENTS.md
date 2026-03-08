@@ -53,15 +53,12 @@
 - [x] **SRCH-02**: User can filter startups by sector, stage, location, and score range
 - [x] **SRCH-03**: Search results show momentum score and key signals
 
-### Watchlists
+### Marketing Site & Launch
 
-- [ ] **WATCH-01**: User can add/remove startups to a personal watchlist
-- [ ] **WATCH-02**: User can view their watchlist as a filtered feed
-- [ ] **WATCH-03**: User receives email notification when a watched startup's momentum score spikes
-
-### Data Export
-
-- [ ] **EXPORT-01**: User can export search results or watchlist to CSV
+- [x] **MKT-01**: Public marketing site includes required sections with premium 3D storytelling (Hero, Problem, Solution, How it Works, Social Proof, Pricing, Request Access)
+- [x] **MKT-02**: 3D experience meets performance/mobile/accessibility constraints with graceful fallbacks
+- [x] **MKT-03**: Request Access funnel captures qualified leads with sector selection, email verification, and analytics events
+- [x] **MKT-04**: Marketing site is launch-ready on Vercel with SEO/social metadata and operational runbook
 
 ## v2 Requirements
 
@@ -129,10 +126,10 @@
 | SRCH-01 | Phase 5 | Completed |
 | SRCH-02 | Phase 5 | Completed |
 | SRCH-03 | Phase 5 | Completed |
-| WATCH-01 | Phase 6 | Pending |
-| WATCH-02 | Phase 6 | Pending |
-| WATCH-03 | Phase 6 | Pending |
-| EXPORT-01 | Phase 6 | Pending |
+| MKT-01 | Phase 6 | Completed |
+| MKT-02 | Phase 6 | Completed |
+| MKT-03 | Phase 6 | Completed |
+| MKT-04 | Phase 6 | Completed |
 
 **Coverage:**
 - v1 requirements: 31 total
@@ -141,4 +138,4 @@
 
 ---
 *Requirements defined: 2026-02-27*
-*Last updated: 2026-03-01 after Phase 5 execution*
+*Last updated: 2026-03-01 after Phase 6 execution*

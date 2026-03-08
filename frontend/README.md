@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Founder Radar Frontend
 
-## Getting Started
+This frontend now includes two experiences:
 
-First, run the development server:
+- Public marketing site at `/` with 3D storyscrolling and request-access funnel
+- Authenticated product app (`/login`, `/feed`, `/explore`, etc.)
+
+## Local Development
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) for marketing and [http://localhost:3000/feed](http://localhost:3000/feed) for app routes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local` in `frontend/` with:
 
-## Learn More
+```bash
+# Marketing site URL (used in SEO + email verify links)
+NEXT_PUBLIC_MARKETING_URL=http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+# Backend API base used by frontend server routes
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+BACKEND_URL=http://127.0.0.1:8000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Feature flags
+NEXT_PUBLIC_ENABLE_3D=true
+NEXT_PUBLIC_ENABLE_GYRO=false
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Request-access persistence and email are now handled by backend env vars
+```
+
+## Marketing Site Notes
+
+- 3D stack: `@react-three/fiber`, `@react-three/drei`
+- Motion: `framer-motion` + `lenis`
+- Fallback tiers: `full`, `lite`, `static` based on WebGL/capability checks
+- Request access API routes:
+	- `POST /api/request-access`
+	- `GET /api/request-access/verify?token=...`
+
+These frontend routes proxy to backend persistence APIs:
+
+- `POST /api/marketing/request-access`
+- `GET /api/marketing/request-access/verify?token=...`
+
+## Verification Checklist
+
+Run:
+
+```bash
+npm run lint
+npm run build
+```
+
+Manual checks:
+
+- Hero/Problem/Solution/How-it-Works/Social-Proof/Pricing/Request-Access sections render
+- Request Access form submits and verify link page works
+- Reduced motion and no-WebGL fallback render readable static experience
+- Feed/dashboard routes still function
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy with Vercel using the same environment variables above. Keep `NEXT_PUBLIC_ENABLE_GYRO=false` for launch stability, and enable only after device-level testing.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Post-deploy smoke test:
+
+1. Load `/` on desktop + mobile
+2. Submit request access form and verify email flow
+3. Confirm `/verify?token=...` resolves successfully
+4. Confirm app routes (`/login`, `/feed`) still work

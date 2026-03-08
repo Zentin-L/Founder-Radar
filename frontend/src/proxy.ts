@@ -1,17 +1,25 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const publicPaths = ["/", "/login", "/register", "/reset-password"];
+const publicPaths = ["/", "/login", "/register", "/reset-password", "/verify"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
-    // Allow public routes
-    if (publicPaths.some((path) => pathname === path || pathname.startsWith("/_next"))) {
+    const isPublicAsset =
+        pathname.startsWith("/_next") ||
+        pathname.startsWith("/favicon") ||
+        pathname.startsWith("/logos/") ||
+        /\.[^/]+$/.test(pathname);
+
+    if (isPublicAsset) {
         return NextResponse.next();
     }
 
-    // Check for auth cookie on protected routes
+    if (publicPaths.some((path) => pathname === path)) {
+        return NextResponse.next();
+    }
+
     const token = request.cookies.get("access_token");
     if (!token) {
         const loginUrl = new URL("/login", request.url);

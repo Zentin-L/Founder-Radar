@@ -14,6 +14,7 @@ from app.auth.models import User
 from app.startups.models import Startup
 from app.signals.models import Signal
 from app.scoring.models import StartupScoreHistory
+from app.marketing.models import RequestAccessLead
 
 config = context.config
 

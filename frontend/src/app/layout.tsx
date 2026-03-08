@@ -9,8 +9,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Founder Radar — Startup Signal Intelligence",
-  description: "Real-time growth signal tracking for VC analysts. Discover breakout startups before they raise.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_MARKETING_URL || "http://localhost:3000"),
+  title: "Founder Radar - Startup Discovery",
+  description: "Real-time startup momentum tracking and founder intelligence platform",
+  openGraph: {
+    title: "Founder Radar",
+    description: "Discover breakout startups before they raise.",
+    type: "website",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Founder Radar",
+    description: "The Bloomberg Terminal for startup momentum.",
+  },
 };
 
 export default function RootLayout({
@@ -20,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans antialiased bg-gray-950 text-gray-100`}>
+      <body className={`${inter.variable} font-sans antialiased relative`}>
         <Providers>{children}</Providers>
       </body>
     </html>

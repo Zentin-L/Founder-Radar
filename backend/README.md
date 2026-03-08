@@ -22,6 +22,28 @@ uvicorn app.main:app --reload
 - `GET /api/signals/linkedin/{startup_id}`
 - `GET /api/signals/{startup_id}`
 
+## Marketing Request Access (Phase 6 hardening)
+
+### API endpoints
+
+- `POST /api/marketing/request-access`
+- `GET /api/marketing/request-access/verify?token=...`
+
+Leads are now persisted in PostgreSQL (`request_access_leads` table) and survive server restarts.
+
+### Optional email env vars
+
+Set in `backend/.env`:
+
+```bash
+RESEND_API_KEY=
+MARKETING_FROM_EMAIL=Founder Radar <noreply@foundradar.com>
+MARKETING_ADMIN_EMAIL=
+FRONTEND_URL=http://localhost:3000
+```
+
+If `RESEND_API_KEY` is unset, API behavior still works and email sends are skipped with logs.
+
 ### Backfill historical signals
 
 Dry run:
