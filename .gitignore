@@ -27,6 +27,9 @@ out/
 *.swp
 *.swo
 
+# Auto-Git extension runtime data
+.autogit/
+
 # OS
 .DS_Store
 Thumbs.db
